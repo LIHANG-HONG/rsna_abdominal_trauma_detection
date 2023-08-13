@@ -43,8 +43,8 @@ class SegFractureEvaluator(Evaluator):
         self.args = args
 
         self.competition_weights = {
-            'negative': torch.from_numpy(np.array([7, 1, 1, 1, 1, 1, 1, 1])).float(),
-            'positive': torch.from_numpy(np.array([14, 2, 2, 2, 2, 2, 2, 2])).float()
+            'negative': torch.from_numpy(np.array([1,1,1,1,1,1])).float(),
+            'positive': torch.from_numpy(np.array([2,4,2,4,2,4])).float()
         }
 
     def init_metrics(self) -> Dict:
@@ -134,7 +134,7 @@ def parse_args():
 
 def create_data_datasets(args):
     conf = load_config(args.config)
-    slice_size = conf.get("slice_size", 32)
+    slice_size = conf.get("slice_size", 256)
     val_slice_size = conf.get("val_slice_size", slice_size)
     crop_size = conf.get("crop_size", 160)
 
